@@ -22,12 +22,10 @@ function calculatePackedCircles(
 }
 
 function isNotOverlappingAny(c: CircleData, others: CircleData[]): boolean {
-  for (const otherCircle of others) {
-    if (areOverlapping(c, otherCircle)) {
-      return false;
-    }
-  }
-  return true;
+  // Harder to read, depending on the audience.
+  // Don't seek to write code like this,
+  // but do try to understand it.
+  return !others.some((other) => areOverlapping(c, other));
 }
 
 function makeRandomCircle(w: number, h: number): CircleData {
